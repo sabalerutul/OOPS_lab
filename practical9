@@ -1,0 +1,53 @@
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Base
+{
+public:
+    virtual void display()
+    {
+        cout << "Display function of Base class" << endl;
+    }
+};
+
+// Derived class 1
+class Derived1 : public Base
+{
+public:
+    void display()
+    {
+        cout << "Display function of Derived1 class" << endl;
+    }
+};
+
+// Derived class 2
+class Derived2 : public Base
+{
+public:
+    void display()
+    {
+        cout << "Display function of Derived2 class" << endl;
+    }
+};
+
+int main()
+{
+    Base *ptr;
+
+    Base b;
+    Derived1 d1;
+    Derived2 d2;
+
+    ptr = &b;
+    ptr->display();
+
+    ptr = &d1;
+    ptr->display();
+
+    ptr = &d2;
+    ptr->display();
+
+    return 0;
+}
