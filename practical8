@@ -1,0 +1,87 @@
+
+#include <iostream>
+using namespace std;
+
+// Base class 1
+class BasicInfo
+{
+protected:
+    int emp_id;
+    string emp_name;
+    int age;
+
+public:
+    void getBasicInfo()
+    {
+        cout << "Enter Employee ID: ";
+        cin >> emp_id;
+
+        cout << "Enter Employee Name: ";
+        cin >> emp_name;
+
+        cout << "Enter Employee Age: ";
+        cin >> age;
+    }
+
+    void displayBasicInfo()
+    {
+        cout << "\nEmployee ID: " << emp_id;
+        cout << "\nEmployee Name: " << emp_name;
+        cout << "\nEmployee Age: " << age;
+    }
+};
+
+// Base class 2
+class DepartmentInfo
+{
+protected:
+    int dept_id;
+    string dept_name;
+
+public:
+    void getDepartmentInfo()
+    {
+        cout << "Enter Department ID: ";
+        cin >> dept_id;
+
+        cout << "Enter Department Name: ";
+        cin >> dept_name;
+    }
+
+    void displayDepartmentInfo()
+    {
+        cout << "\nDepartment ID: " << dept_id;
+        cout << "\nDepartment Name: " << dept_name;
+    }
+};
+
+// Derived class
+class Employee : public BasicInfo, public DepartmentInfo
+{
+public:
+    void getEmployeeInfo()
+    {
+        getBasicInfo();
+        getDepartmentInfo();
+    }
+
+    void displayEmployeeInfo()
+    {
+        displayBasicInfo();
+        displayDepartmentInfo();
+    }
+};
+
+int main()
+{
+    Employee e;
+
+    cout << "Enter Employee Information:\n";
+
+    e.getEmployeeInfo();
+
+    cout << "\n\nEmployee Information:";
+    e.displayEmployeeInfo();
+
+    return 0;
+}
