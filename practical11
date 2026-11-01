@@ -1,0 +1,52 @@
+
+#include <iostream>
+using namespace std;
+
+// Function Template
+template <class T>
+T add(T a, T b)
+{
+    return a + b;
+}
+
+// Class Template
+template <class T>
+class Calculator
+{
+    T a, b;
+
+public:
+    void getData()
+    {
+        cout << "Enter two numbers: ";
+        cin >> a >> b;
+    }
+
+    void display()
+    {
+        cout << "Addition = " << a + b << endl;
+        cout << "Subtraction = " << a - b << endl;
+        cout << "Multiplication = " << a * b << endl;
+    }
+};
+
+int main()
+{
+    int x, y;
+
+    // Function Template
+    cout << "FUNCTION TEMPLATE" << endl;
+    cout << "Enter two integers: ";
+    cin >> x >> y;
+
+    cout << "Addition = " << add(x, y) << endl;
+
+    // Class Template
+    cout << "\nCLASS TEMPLATE" << endl;
+
+    Calculator<int> c;
+    c.getData();
+    c.display();
+
+    return 0;
+}
